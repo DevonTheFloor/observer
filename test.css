@@ -1,0 +1,17 @@
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bloc{
+  border: 2px solid blue;
+  margin: 15%;
+  padding: 2%;
+}
+
+.visible{
+  border: 20px solid red;
+  padding:8%;
+  background-color: orange;
+}

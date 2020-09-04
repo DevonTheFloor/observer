@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="test.css">
+  <title>Test</title>
+</head>
+<body>
+ <header>
+   <h1>
+     TITRE
+   </h1>
+ </header> 
+ <main id="observed"> 
+   <div class="one bloc">
+    FIRST
+   </div>
+   <div class="two bloc" >
+    SECOND
+   </div>
+   <div class="tree bloc" id="target">
+    THIRD
+   </div>
+  </main>
+  <script>
+    const ratio =0.1;
+    var options = {
+      root: null,//document.querySelector('#observed'),
+      rootMargin: '0px',
+      threshold: ratio
+      }
+
+      var voir = function(entries, observer) {
+        entries.forEach(entry => {
+          if(entry.intersectionRatio > ratio)
+         { console.log('VISIBLE');
+         //observer.unobserve(entry.target)
+         entry.target.classList.add('visible');
+         }else{
+           console.log('INVISIBLE')
+         }
+        }); 
+      };
+
+    var observer = new IntersectionObserver(voir, options);
+
+    var target = document.querySelector('#target');
+    observer.observe(target);
+
+
+  </script>
+</body>
+</html>
